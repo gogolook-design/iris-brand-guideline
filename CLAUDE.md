@@ -43,6 +43,9 @@ below.
 - **Positioning:** the expert risk lens for financial institutions — turning
   thousands of behavioral signals into clear, explainable decisions.
 - **Personality:** expert · precise · trustworthy · clear.
+- **Space = clarity:** the layout itself should *feel* like seeing clearly. Use
+  generous whitespace, airy section rhythm, light type weights, and wide-tracked
+  headlines. Never crowd. Openness is the visual proof of the promise.
 
 ### Mission
 > Help financial institutions see and stop fraud and credit risk before it costs
@@ -81,35 +84,42 @@ marketing** = outcome-led, still evidence-based. **Docs / API** = exact, imperat
 
 ## 4. Color
 
-Sampled from the Gogolook palette. IRIS is a **cool, blue-led** brand. Warm tones
-appear **only** as semantic risk signals in data, never as brand decoration.
+IRIS is a **cool, blue family led by the Gogolook Primary Blue**, with **Blue Iris**
+as the secondary support (a refined nod to WitcherFin's old purple and to the name
+itself). Azure and Sky are accents. Warm tones appear **only** as semantic risk
+signals in data, never as brand decoration.
 
-### Brand
-| Token | Hex | Use |
-|-------|-----|-----|
-| `--iris-blue` (Primary) | `#0058EA` | Primary actions, links, brand blue, key accents |
-| `--iris-navy` (Dark) | `#0F2647` | Dark surfaces, console sidebar, headings on light |
-| `--iris-teal` (Intelligence accent) | `#01D3B8` | Data/insight highlights, charts, secondary accent |
-| `--iris-green` (Positive) | `#30FF85` | Success, "recovered" / approved states — use sparingly |
+### Primary, Secondary & Accents
+| Role | Token | Name | Hex | Use |
+|------|-------|------|-----|-----|
+| **Primary** | `--blue` | Blue | `#0058EA` | The lead. Primary actions, links, active states, key brand accents. White text passes AA. |
+| **Secondary** | `--iris` | Blue Iris | `#5A5B9F` | Support — secondary buttons/surfaces, muted accents. Ties to the name. White text passes AA (~6:1). |
+| Accent | `--azure` | Azure | `#41A9F6` | Highlights, data-viz, icons. **Accent/fill only** — navy text, never white; not for link text. |
+| Light accent | `--sky` | Iris Sky | `#7EDFFE` | Tints, hover fills, chart-light, glows on dark (accent/fill only). |
 
-### Neutrals
-| Token | Hex | Use |
-|-------|-----|-----|
-| `--ink` | `#0F2647` | Primary text |
-| `--ink-2` | `#48566B` | Secondary text |
-| `--line` | `#E3E8F0` | Borders, dividers |
-| `--surface` | `#F5F8FC` | App background, cards |
-| `--white` | `#FFFFFF` | Cards, content surfaces |
+### Foundations
+| Token | Name | Hex | Use |
+|-------|------|-----|-----|
+| `--navy` | Iris Navy | `#0F2647` | Ink, headings, sidebar, dark surfaces |
+| `--mist` | Iris Mist | `#F3F8FE` | App background, cards (lightest surface) |
+| `--white` | White | `#FFFFFF` | Content surfaces |
+| `--ink-2` | — | `#5A6577` | Secondary text |
+| `--line` | — | `#E6ECF5` | Borders, dividers |
 
-### Semantic risk scale (data viz only)
+### Brand gradient
+`Blue → Azure → Sky` (`#0058EA → #41A9F6 → #7EDFFE`) — hero, gradient logotype,
+marketing only.
+
+### Semantic risk scale (data viz only — separate from brand color)
 | Level | Hex | Meaning |
 |-------|-----|---------|
 | High risk | `#E5484D` | High-risk factor / reject |
 | Medium risk | `#F5A623` | Caution / manual review |
-| Low risk | `#30FF85` / `#01D3B8` | Low risk / approved |
+| Low risk | `#2FB87A` | Low risk / approved |
 
-Rules: never use red/amber as brand or decorative color — reserve for risk
-semantics. Maintain WCAG AA: `#0058EA` and `#0F2647` pass on white for text.
+Rules: never use red/amber as brand or decorative color. Maintain WCAG AA —
+`#0058EA`, `#5A5B9F`, and `#0F2647` pass on white for text; Azure/Sky are
+accent/fill only.
 
 ---
 
@@ -117,7 +127,7 @@ semantics. Maintain WCAG AA: `#0058EA` and `#0F2647` pass on white for text.
 
 | Role | Font | Weights | Use |
 |------|------|---------|-----|
-| Primary | **Plus Jakarta Sans** | 800 / 700 / 600 | Headlines and highlighted paragraphs only. Carries brand personality. |
+| Primary | **Plus Jakarta Sans** | 300 – 800 | Headlines (700), logotype (300–500), highlighted paragraphs. Favor **light weights + generous space** for an airy, clear feel — clarity is the brand. |
 | Secondary | **Inter** | 400 / 500 / 600 | Body copy across digital and print. Use `font-variant-numeric: tabular-nums` for all scores, percentiles, and table figures. |
 | Regional | **Noto Sans** | 400 / 500 / 700 | CJK + multilingual body (TC/JP/KR/TH). Ensures regional readability. |
 
@@ -135,8 +145,8 @@ IRIS is a **logotype-only** brand — no pictorial symbol. The name does the wor
 - **Logotype:** `IRIS` set in **Plus Jakarta Sans, light weight (400–500)** with
   **wide letter-spacing (~0.25em)**. The thin, airy treatment reads precise,
   modern, and timeless — a lens of clarity, not a heavy badge.
-- **Color:** `--iris-navy` on light backgrounds; white on dark; a single
-  blue→teal gradient fill is permitted for hero/marketing use only.
+- **Color:** Iris Navy on light backgrounds; white on dark; the Blue → Azure → Sky
+  gradient fill is permitted for hero/marketing use only.
 - **Circle containment (app mark):** the logotype centered inside a thin-stroke
   circle — used where a compact, contained mark is needed (console top bar,
   avatar, favicon). Replaces the old "W" badge. Keep the stroke thin and the
