@@ -46,26 +46,26 @@
   @media(max-width:720px){.nav-links{display:none}}
 
   /* ---- hero ---- */
-  .hero{background:radial-gradient(135% 130% at 80% -15%,#1f63e6 0%,#163a86 40%,#14315f 70%,var(--navy) 100%);color:#fff;padding:clamp(150px,18vw,236px) clamp(24px,5vw,48px) clamp(130px,15vw,196px);overflow:hidden;position:relative}
+  .hero{background:radial-gradient(120% 130% at 72% 50%,#11254e 0%,#081632 45%,#040c1e 75%,#020616 100%);color:#fff;padding:clamp(150px,18vw,236px) clamp(24px,5vw,48px) clamp(130px,15vw,196px);overflow:hidden;position:relative}
   .hero .wrap{position:relative;z-index:2}
   .hero h1{font-size:clamp(60px,11vw,140px);font-weight:300;letter-spacing:.22em;margin:38px 0 26px;padding-left:.22em}
   .hero .tag{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.8vw,34px);color:var(--sky)}
   .hero .expand{margin-top:30px;color:#c3cfe8;max-width:52ch;font-size:18px;line-height:1.7}
   .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(174,191,218,.4);border-radius:999px;padding:8px 16px;font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#d4def3;position:relative;z-index:2}
-  /* spotlight background — three drifting beams */
+  /* glassy orb stack — refracted halos + focal core */
   .hero-fx{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
-  .spotlight{position:absolute;width:78vw;height:42vw;border-radius:50%;filter:blur(52px);mix-blend-mode:screen;will-change:transform,opacity;opacity:.85}
-  .spotlight-left{top:18%;left:6%;background:radial-gradient(ellipse at center,rgba(0,88,234,.72) 0%,rgba(0,88,234,0) 62%);animation:spot-left 12s ease-in-out infinite}
-  .spotlight-mid{top:36%;left:34%;width:70vw;height:38vw;background:radial-gradient(ellipse at center,rgba(65,169,246,.58) 0%,rgba(65,169,246,0) 62%);animation:spot-mid 15s ease-in-out -3s infinite}
-  .spotlight-right{top:22%;left:54%;width:74vw;height:42vw;background:radial-gradient(ellipse at center,rgba(126,223,254,.5) 0%,rgba(126,223,254,0) 62%);animation:spot-right 18s ease-in-out -5s infinite}
-  .veil{position:absolute;inset:0;will-change:opacity}
-  .veil.v1{background:linear-gradient(180deg,rgba(0,88,234,.35) 0%,rgba(15,38,71,.15) 100%);animation:clarify 13s ease-in-out infinite}
-  .veil.v2{background:radial-gradient(120% 100% at 70% 0%,rgba(65,169,246,.32) 0%,rgba(90,91,159,.18) 45%,transparent 75%);animation:clarify 19s ease-in-out infinite;animation-delay:-6s}
-  @keyframes spot-left{0%{transform:translate(-50%,-50%) rotate(0deg)}33%{transform:translate(-30%,-70%) rotate(15deg)}66%{transform:translate(-70%,-30%) rotate(-15deg)}100%{transform:translate(-50%,-50%) rotate(0deg)}}
-  @keyframes spot-mid{0%{transform:translate(0%,0%) rotate(-20deg)}33%{transform:translate(20%,30%) rotate(0deg)}66%{transform:translate(-20%,10%) rotate(20deg)}100%{transform:translate(0%,0%) rotate(-20deg)}}
-  @keyframes spot-right{0%{transform:translate(0%,0%) rotate(10deg)}33%{transform:translate(-30%,-20%) rotate(-10deg)}66%{transform:translate(10%,20%) rotate(25deg)}100%{transform:translate(0%,0%) rotate(10deg)}}
-  @keyframes clarify{0%{opacity:.95}42%{opacity:0}58%{opacity:0}100%{opacity:.95}}
-  @media(prefers-reduced-motion:reduce){.spotlight,.veil{animation:none}.spotlight{opacity:.45}.veil.v1{opacity:.25}.veil.v2{opacity:.18}}
+  .orb-stack{position:absolute;right:clamp(20px,4vw,80px);top:50%;transform:translateY(-50%);width:min(480px,40vw);height:min(980px,98vh);z-index:1}
+  @media(max-width:900px){.orb-stack{display:none}}
+  .orb{position:absolute;left:50%;border-radius:50%;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);background:linear-gradient(155deg,rgba(255,255,255,0.10) 0%,rgba(255,255,255,0.03) 50%,rgba(255,255,255,0.01) 100%);border:1px solid rgba(255,255,255,0.13);will-change:transform}
+  .orb-1{top:2%;width:84%;aspect-ratio:1;transform:translateX(-50%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,0.32),inset 0 -18px 44px rgba(0,0,0,0.38),0 0 90px 28px rgba(0,88,234,0.55),0 0 200px 80px rgba(0,88,234,0.22);animation:orb1 7s ease-in-out infinite;z-index:1}
+  .orb-2{top:28%;width:92%;aspect-ratio:1;transform:translateX(-50%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,0.34),inset 0 -18px 44px rgba(0,0,0,0.4),0 0 100px 32px rgba(65,169,246,0.5),0 0 220px 96px rgba(65,169,246,0.2);animation:orb2 6s ease-in-out -2s infinite;z-index:2}
+  .orb-3{top:56%;width:96%;aspect-ratio:1;transform:translateX(-50%);box-shadow:inset 0 1.5px 0 rgba(255,255,255,0.30),inset 0 -20px 46px rgba(0,0,0,0.44),0 0 110px 36px rgba(90,91,159,0.55),0 0 240px 110px rgba(90,91,159,0.22),0 0 260px 130px rgba(126,223,254,0.10);animation:orb3 8s ease-in-out -4s infinite;z-index:3}
+  .orb-focal{top:48%;width:8%;aspect-ratio:1;border:none;backdrop-filter:none;-webkit-backdrop-filter:none;background:#ffffff;transform:translateX(-50%) translateY(-50%);box-shadow:0 0 24px 6px rgba(255,255,255,0.9),0 0 60px 20px rgba(126,223,254,0.85),0 0 140px 44px rgba(65,169,246,0.55);animation:focalP 3.5s ease-in-out infinite;z-index:5}
+  @keyframes orb1{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}50%{transform:translateX(-50%) translateY(-6px) scale(1.035)}}
+  @keyframes orb2{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}50%{transform:translateX(-50%) translateY(4px) scale(1.045)}}
+  @keyframes orb3{0%,100%{transform:translateX(-50%) translateY(0) scale(1)}50%{transform:translateX(-50%) translateY(6px) scale(1.03)}}
+  @keyframes focalP{0%,100%{transform:translateX(-50%) translateY(-50%) scale(1);opacity:.92}50%{transform:translateX(-50%) translateY(-50%) scale(1.22);opacity:1}}
+  @media(prefers-reduced-motion:reduce){.orb,.orb-focal{animation:none}}
 
   /* ---- section heads ---- */
   .shead{font-size:clamp(32px,4.6vw,52px);font-weight:700;letter-spacing:-.015em;margin-bottom:20px}
@@ -167,11 +167,12 @@
 
 <header class="hero">
   <div class="hero-fx" aria-hidden="true">
-    <div class="spotlight spotlight-left"></div>
-    <div class="spotlight spotlight-mid"></div>
-    <div class="spotlight spotlight-right"></div>
-    <div class="veil v1"></div>
-    <div class="veil v2"></div>
+    <div class="orb-stack">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="orb orb-focal"></div>
+    </div>
   </div>
   <div class="wrap">
     <span class="pill">Gogolook · B2B Risk Intelligence</span>
