@@ -46,7 +46,7 @@
   @media(max-width:720px){.nav-links{display:none}}
 
   /* ---- hero ---- */
-  .hero{background:radial-gradient(135% 130% at 80% -15%,#1f63e6 0%,#163a86 40%,#14315f 70%,var(--navy) 100%);color:#fff;padding:clamp(150px,18vw,236px) clamp(24px,5vw,48px) clamp(130px,15vw,196px);overflow:hidden;position:relative}
+  .hero{background:radial-gradient(135% 130% at 80% -15%,#1f63e6 0%,#163a86 40%,#14315f 70%,var(--navy) 100%);color:#fff;padding:clamp(72px,8vw,120px) clamp(24px,5vw,48px) clamp(100px,12vw,160px);overflow:hidden;position:relative}
   .hero .wrap{position:relative;z-index:2}
   .hero h1{font-size:clamp(60px,11vw,140px);font-weight:300;letter-spacing:.22em;margin:38px 0 26px;padding-left:.22em}
   .hero .tag{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.8vw,34px);color:var(--sky)}
@@ -117,22 +117,23 @@
   .stat-num{font-family:var(--display);font-weight:700;font-size:clamp(32px,3.8vw,46px);color:var(--blue);letter-spacing:-.02em;line-height:1;font-variant-numeric:tabular-nums}
   .stat-num span{font-size:.55em;color:var(--azure);font-weight:600;margin-left:2px}
   .stat-lbl{font-size:13px;color:var(--ink-2);margin-top:12px;line-height:1.5}
-  .product-viz{display:flex;justify-content:center;margin:24px 0 72px}
-  .donut-wrap{position:relative;width:min(360px,82%);aspect-ratio:1}
-  .donut-wrap svg{width:100%;height:100%;display:block}
-  .donut-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;font-family:var(--display);font-weight:700;font-size:clamp(16px,1.6vw,20px);color:var(--ink);line-height:1.25}
-  .donut-label span{display:block;font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
-  .risk-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-  @media(max-width:980px){.risk-cards{grid-template-columns:repeat(2,1fr)}}
-  .risk-card{padding:26px 24px 24px;background:#fff;border:1px solid var(--line);border-radius:16px;border-top:4px solid var(--line);position:relative;box-shadow:0 2px 14px rgba(15,38,71,.04)}
-  .risk-card.high{border-top-color:var(--risk-high)}
-  .risk-card.med{border-top-color:var(--risk-med)}
-  .risk-icon{color:var(--risk-high);margin-bottom:14px;display:block}
-  .risk-card.med .risk-icon{color:var(--risk-med)}
-  .risk-title{font-family:var(--display);font-weight:700;font-size:15.5px;color:var(--ink);margin-bottom:8px;line-height:1.3}
-  .risk-desc{font-size:13.5px;color:var(--ink-2);line-height:1.6}
-  .risk-chip{display:inline-block;margin-top:14px;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:999px;background:rgba(229,72,77,.10);color:var(--risk-high)}
-  .risk-card.med .risk-chip{background:rgba(245,166,35,.14);color:#a96e10}
+  .product-viz{display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(28px,5vw,64px);align-items:center}
+  @media(max-width:860px){.product-viz{grid-template-columns:1fr;gap:44px}}
+  .donut-wrap{position:relative;width:100%;max-width:400px;margin:0 auto;aspect-ratio:1}
+  .donut-wrap svg{width:100%;height:100%;display:block;overflow:visible}
+  .donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;text-align:center;width:50%}
+  .donut-center .ng{margin-bottom:8px}
+  .donut-label{font-family:var(--display);font-weight:700;font-size:clamp(15px,1.5vw,19px);color:var(--ink);line-height:1.2}
+  .donut-label span{display:block;font-weight:500;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-top:6px}
+  .risk-list{display:flex;flex-direction:column;gap:22px}
+  .risk-item{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+  .risk-item .ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+  .risk-item.high .ico{background:rgba(229,72,77,.12);color:var(--risk-high)}
+  .risk-item.med .ico{background:rgba(245,166,35,.16);color:#b9791a}
+  .risk-item .rt{font-family:var(--display);font-weight:700;font-size:17px;line-height:1.3;margin-bottom:4px}
+  .risk-item.high .rt{color:var(--risk-high)}
+  .risk-item.med .rt{color:#b9791a}
+  .risk-item .rd{font-size:14px;color:var(--ink-2);line-height:1.6}
 
   /* ---- type ---- */
   .type-block{border-top:1px solid var(--line);padding:48px 0;display:grid;grid-template-columns:220px 1fr;gap:48px}
@@ -237,42 +238,59 @@
     <div class="product-viz">
       <div class="donut-wrap">
         <svg viewBox="0 0 200 200" aria-hidden="true">
-          <g transform="rotate(-90 100 100)" fill="none" stroke-width="22">
-            <circle cx="100" cy="100" r="80" stroke="#E5484D" stroke-dasharray="125.66 376.99" stroke-dashoffset="0"/>
-            <circle cx="100" cy="100" r="80" stroke="#F5A623" stroke-dasharray="125.66 376.99" stroke-dashoffset="-125.66"/>
-            <circle cx="100" cy="100" r="80" stroke="#E5484D" stroke-dasharray="125.66 376.99" stroke-dashoffset="-251.33" opacity=".85"/>
-            <circle cx="100" cy="100" r="80" stroke="#F5A623" stroke-dasharray="125.66 376.99" stroke-dashoffset="-376.99" opacity=".82"/>
+          <!-- decorative dashed connector arc on the right -->
+          <path d="M118 12 A 94 94 0 0 1 118 188" fill="none" stroke="#C3CBD8" stroke-width="1.4" stroke-dasharray="2 7" stroke-linecap="round"/>
+          <!-- segmented risk ring (warm semantic colors) -->
+          <g transform="rotate(-90 100 100)" fill="none" stroke-width="24">
+            <circle cx="100" cy="100" r="78" stroke="#E5484D" stroke-dasharray="72 418" stroke-dashoffset="0"/>
+            <circle cx="100" cy="100" r="78" stroke="#D2403F" stroke-dasharray="92 398" stroke-dashoffset="-75"/>
+            <circle cx="100" cy="100" r="78" stroke="#F5A623" stroke-dasharray="118 372" stroke-dashoffset="-170"/>
+            <circle cx="100" cy="100" r="78" stroke="#EE8B4B" stroke-dasharray="108 382" stroke-dashoffset="-291"/>
+            <circle cx="100" cy="100" r="78" stroke="#F4A45C" stroke-dasharray="97 393" stroke-dashoffset="-402"/>
           </g>
-          <circle cx="100" cy="100" r="58" fill="#fff"/>
+          <!-- gauge needle pointing right -->
+          <polygon points="120,93 120,107 178,100" fill="#0F2647"/>
+          <!-- center disc -->
+          <circle cx="100" cy="100" r="60" fill="#fff"/>
+          <circle cx="100" cy="100" r="60" fill="none" stroke="#E6ECF5" stroke-width="1.5"/>
         </svg>
-        <div class="donut-label">High-risk<br>factors<span>Phone-intelligence signals</span></div>
+        <div class="donut-center">
+          <svg class="ng" width="46" height="40" viewBox="0 0 46 40" fill="none" aria-hidden="true">
+            <g stroke="#0F2647" stroke-width="1.6">
+              <line x1="12" y1="11" x2="22" y2="16"/>
+              <line x1="22" y1="16" x2="14" y2="26"/>
+              <line x1="14" y1="26" x2="24" y2="29"/>
+              <line x1="22" y1="16" x2="31" y2="22"/>
+            </g>
+            <g fill="#fff" stroke="#0F2647" stroke-width="1.6">
+              <circle cx="12" cy="11" r="3.2"/><circle cx="22" cy="16" r="3.2"/>
+              <circle cx="14" cy="26" r="3.2"/><circle cx="24" cy="29" r="3.2"/>
+            </g>
+            <path d="M34 14 L41 26 H27 Z" fill="#E5484D"/>
+            <line x1="34" y1="18.5" x2="34" y2="22" stroke="#fff" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="34" cy="24" r="0.9" fill="#fff"/>
+          </svg>
+          <div class="donut-label">High-risk factors<span>Phone-intelligence signals</span></div>
+        </div>
       </div>
-    </div>
 
-    <div class="risk-cards">
-      <div class="risk-card high">
-        <svg class="risk-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <div class="risk-title">High-risk financial contacts</div>
-        <div class="risk-desc">The number frequently interacts with known high-risk financial parties — loan sharks, pawn shops, illegal credit agencies.</div>
-        <span class="risk-chip">High risk</span>
-      </div>
-      <div class="risk-card high">
-        <svg class="risk-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <div class="risk-title">Fraud-suspect contacts</div>
-        <div class="risk-desc">The number appears in Gogolook's fraud database or interacts with numbers flagged for scam activity.</div>
-        <span class="risk-chip">High risk</span>
-      </div>
-      <div class="risk-card med">
-        <svg class="risk-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <div class="risk-title">Abnormal social status</div>
-        <div class="risk-desc">No social communications activity on the number — atypical pattern for a real user, common in shell accounts.</div>
-        <span class="risk-chip">Medium risk</span>
-      </div>
-      <div class="risk-card med">
-        <svg class="risk-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-        <div class="risk-title">Abnormal activity status</div>
-        <div class="risk-desc">No call or messaging activity over the past year — the number reads as dormant, suspicious for a loan or onboarding applicant.</div>
-        <span class="risk-chip">Medium risk</span>
+      <div class="risk-list">
+        <div class="risk-item high">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><div class="rt">High-risk financial contacts</div><div class="rd">The number frequently interacts with known high-risk financial parties — loan sharks, pawn shops, illegal credit agencies.</div></div>
+        </div>
+        <div class="risk-item high">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><div class="rt">Fraud-suspect contacts</div><div class="rd">The number appears in Gogolook's fraud database, or interacts with numbers flagged for scam activity.</div></div>
+        </div>
+        <div class="risk-item med">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><div class="rt">Abnormal social status</div><div class="rd">No social communications activity on the number — atypical for a real user, common in shell accounts.</div></div>
+        </div>
+        <div class="risk-item med">
+          <span class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span>
+          <div><div class="rt">Abnormal activity status</div><div class="rd">No call or messaging activity over the past year — the number reads as dormant, suspicious for an applicant.</div></div>
+        </div>
       </div>
     </div>
   </div>
