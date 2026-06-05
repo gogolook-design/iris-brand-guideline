@@ -84,16 +84,16 @@ marketing** = outcome-led, still evidence-based. **Docs / API** = exact, imperat
 
 ## 4. Color
 
-IRIS is a **cool, blue family led by the Gogolook Primary Blue**, with **Azure**
-as the secondary. **Blue Iris** is an accent (a refined nod to WitcherFin's old
-purple and to the name itself), with Sky as the light accent. Warm tones appear
-**only** as semantic risk signals in data, never as brand decoration.
+IRIS is a **cool, blue family led by Azure**, with **Gogolook Blue** as the
+secondary. **Blue Iris** is an accent (a refined nod to WitcherFin's old purple
+and to the name itself), with Sky as the light accent. Warm tones appear **only**
+as semantic risk signals in data, never as brand decoration.
 
 ### Primary, Secondary & Accents
 | Role | Token | Name | Hex | Use |
 |------|-------|------|-----|-----|
-| **Primary** | `--blue` | Blue | `#0058EA` | The lead. Primary actions, links, active states, key brand accents. White text passes AA. |
-| **Secondary** | `--azure` | Azure | `#41A9F6` | Secondary highlights, data-viz, icons. **Accent/fill only** — navy text, never white; not for link text. |
+| **Primary** | `--blue` | Azure | `#41A9F6` | The lead. Primary actions, links, active states, key brand accents. Use navy text on Azure fills — not white. |
+| **Secondary** | `--azure` | Gogolook Blue | `#0058EA` | Secondary highlights, data-viz, icons. White text passes AA. |
 | Accent | `--iris` | Blue Iris | `#5A5B9F` | Accent — muted surfaces/supporting accents. Ties to the name. White text passes AA (~6:1). |
 | Light accent | `--sky` | Iris Sky | `#7EDFFE` | Tints, hover fills, chart-light, glows on dark (accent/fill only). |
 
@@ -107,8 +107,8 @@ purple and to the name itself), with Sky as the light accent. Warm tones appear
 | `--line` | — | `#E6ECF5` | Borders, dividers |
 
 ### Brand gradient
-`Blue → Azure → Sky` (`#0058EA → #41A9F6 → #7EDFFE`) — hero, gradient logotype,
-marketing only.
+`Gogolook Blue → Azure → Sky` (`#0058EA → #41A9F6 → #7EDFFE`) — hero, gradient
+logotype, marketing only.
 
 ### Semantic risk scale (data viz only — separate from brand color)
 | Level | Hex | Meaning |
@@ -118,8 +118,9 @@ marketing only.
 | Low risk | `#2FB87A` | Low risk / approved |
 
 Rules: never use red/amber as brand or decorative color. Maintain WCAG AA —
-`#0058EA`, `#5A5B9F`, and `#0F2647` pass on white for text; Azure/Sky are
-accent/fill only.
+`#0058EA` (Gogolook Blue), `#5A5B9F`, and `#0F2647` pass on white for text.
+Azure (`#41A9F6`) is the primary but is **accent/fill only** for text contrast —
+use navy text on Azure fills. Sky is fill-only.
 
 ---
 
@@ -142,11 +143,11 @@ accent/fill only.
 
 IRIS is a **logotype-only** brand — no pictorial symbol. The name does the work.
 
-- **Logotype:** `IRIS` set in **Plus Jakarta Sans, light weight (400–500)** with
-  **wide letter-spacing (~0.25em)**. The thin, airy treatment reads precise,
-  modern, and timeless — a lens of clarity, not a heavy badge.
-- **Color:** Iris Navy on light backgrounds; white on dark; the Blue → Azure → Sky
-  gradient fill is permitted for hero/marketing use only.
+- **Logotype:** Custom-designed SVG wordmark (Direction 4 — Chain/Lines, by Konno).
+  Source files in `assets/IRIS_logo_Dark_RGB.svg` (navy) and
+  `assets/IRIS_logo_White_RGB.svg` (white). viewBox: `0 0 1088.38 409.56`.
+- **Color:** Iris Navy on light backgrounds; white on dark; the Gogolook Blue →
+  Azure → Sky gradient fill is permitted for hero/marketing use only.
 - **Circle containment (app mark):** the logotype centered inside a thin-stroke
   circle — used where a compact, contained mark is needed (console top bar,
   avatar, favicon). Replaces the old "W" badge. Keep the stroke thin and the
@@ -172,6 +173,7 @@ All IRIS material is **Confidential & Copyright of Gogolook Co., Ltd.**
 
 - `CLAUDE.md` — this brand guideline (the IRIS brand skill).
 - `iris-brand-guideline.html` — single-page visual guideline (logo, color,
-  type, mission, tone). Open in a browser.
-- *(planned)* IRIS design system / UI spec — documents the console (app shell,
-  sidebar, quota card, data tables, query screens, risk viz) on the IRIS palette.
+  type, mission, tone, UI system, data viz). Password-gated for team sharing.
+- `assets/IRIS_logo_Dark_RGB.svg` — logo, navy fill (clean, metadata-stripped).
+- `assets/IRIS_logo_White_RGB.svg` — logo, white fill (clean, metadata-stripped).
+- Deployed to GitHub Pages via `gogolook-design/iris-brand-guideline`.
