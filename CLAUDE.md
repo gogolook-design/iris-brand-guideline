@@ -84,17 +84,17 @@ marketing** = outcome-led, still evidence-based. **Docs / API** = exact, imperat
 
 ## 4. Color
 
-IRIS is a **cool, blue family led by the Gogolook Primary Blue**, with **Blue Iris**
-as the secondary support (a refined nod to WitcherFin's old purple and to the name
-itself). Azure and Sky are accents. Warm tones appear **only** as semantic risk
-signals in data, never as brand decoration.
+IRIS is a **cool, blue family led by the Gogolook Primary Blue**, with **Azure**
+as the secondary. **Blue Iris** is an accent (a refined nod to WitcherFin's old
+purple and to the name itself), with Sky as the light accent. Warm tones appear
+**only** as semantic risk signals in data, never as brand decoration.
 
 ### Primary, Secondary & Accents
 | Role | Token | Name | Hex | Use |
 |------|-------|------|-----|-----|
 | **Primary** | `--blue` | Blue | `#0058EA` | The lead. Primary actions, links, active states, key brand accents. White text passes AA. |
-| **Secondary** | `--iris` | Blue Iris | `#5A5B9F` | Support — secondary buttons/surfaces, muted accents. Ties to the name. White text passes AA (~6:1). |
-| Accent | `--azure` | Azure | `#41A9F6` | Highlights, data-viz, icons. **Accent/fill only** — navy text, never white; not for link text. |
+| **Secondary** | `--azure` | Azure | `#41A9F6` | Secondary highlights, data-viz, icons. **Accent/fill only** — navy text, never white; not for link text. |
+| Accent | `--iris` | Blue Iris | `#5A5B9F` | Accent — muted surfaces/supporting accents. Ties to the name. White text passes AA (~6:1). |
 | Light accent | `--sky` | Iris Sky | `#7EDFFE` | Tints, hover fills, chart-light, glows on dark (accent/fill only). |
 
 ### Foundations

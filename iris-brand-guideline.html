@@ -41,8 +41,10 @@
   nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
   .nav-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;gap:28px;padding:16px clamp(24px,5vw,48px)}
   .nav-logo{font-family:var(--display);font-weight:500;font-size:19px;letter-spacing:.26em;color:var(--ink);margin-right:auto}
-  nav a{color:var(--ink-2);text-decoration:none;font-weight:500;font-size:14px}
+  nav a{color:var(--ink-2);text-decoration:none;font-weight:500;font-size:14px;position:relative;padding-bottom:4px;transition:color .2s}
   nav a:hover{color:var(--blue)}
+  nav a.active{color:var(--blue);font-weight:600}
+  nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;border-radius:2px;background:var(--blue)}
   @media(max-width:720px){.nav-links{display:none}}
 
   /* ---- hero ---- */
@@ -153,7 +155,7 @@
   .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:64px}
   @media(max-width:760px){.principles{grid-template-columns:1fr}}
   .principles .pr{background:#fff;border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:32px;box-shadow:0 6px 32px rgba(0,0,0,.18)}
-  .principles .pr .n{font-family:var(--display);font-weight:700;color:var(--blue);font-size:14px;letter-spacing:.1em}
+  .principles .pr .n{font-family:var(--display);font-weight:700;color:var(--iris);font-size:14px;letter-spacing:.1em}
   .principles .pr h4{margin:12px 0 10px;font-size:19px;color:var(--ink)}
   .principles .pr p{color:var(--ink-2);font-size:14px;line-height:1.6}
   .dd{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -167,6 +169,80 @@
   .dd li{font-size:17px;color:var(--ink);padding-left:30px;position:relative;line-height:1.55}
   .dd .do li::before{content:"✓";position:absolute;left:0;top:1px;font-size:18px;color:var(--success);font-weight:700}
   .dd .dont li::before{content:"✕";position:absolute;left:0;top:1px;font-size:18px;color:#c53b3f;font-weight:700}
+
+  /* ---- UI system ---- */
+  .uikit{background:var(--mist)}
+  .ui-block{margin-bottom:56px}
+  .ui-block:last-child{margin-bottom:0}
+  .ui-sub{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-bottom:20px}
+  .ui-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:clamp(24px,3vw,36px)}
+  .ui-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .ui-row+.ui-row{margin-top:18px}
+  /* buttons */
+  .btn{font-family:var(--body);font-weight:600;font-size:14px;border-radius:10px;padding:11px 20px;border:1px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.15s;line-height:1}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-primary:hover{background:#0049c4}
+  .btn-secondary{background:#fff;color:var(--blue);border-color:var(--blue)}
+  .btn-secondary:hover{background:rgba(0,88,234,.06)}
+  .btn-accent{background:var(--iris);color:#fff}
+  .btn-accent:hover{background:#4a4b87}
+  .btn-ghost{background:transparent;color:var(--ink-2)}
+  .btn-ghost:hover{background:var(--mist);color:var(--ink)}
+  .btn-disabled{background:#E6ECF5;color:#9aa6b6;cursor:not-allowed}
+  .btn-sm{padding:8px 14px;font-size:13px}
+  .btn-lg{padding:14px 26px;font-size:15px}
+  /* form controls */
+  .field{display:flex;flex-direction:column;gap:7px;max-width:300px}
+  .field label{font-size:13px;font-weight:600;color:var(--ink)}
+  .input{font-family:var(--body);font-size:14px;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);outline:none;width:100%;transition:.15s}
+  .input::placeholder{color:#9aa6b6}
+  .input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(0,88,234,.15)}
+  .hint{font-size:12px;color:var(--ink-2)}
+  .toggle{width:44px;height:26px;border-radius:999px;background:var(--blue);position:relative;flex-shrink:0}
+  .toggle.off{background:#cdd6e4}
+  .toggle::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.15s;box-shadow:0 1px 3px rgba(0,0,0,.2)}
+  .toggle:not(.off)::after{left:21px}
+  /* badges */
+  .badge{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:12px;padding:5px 11px;border-radius:999px;line-height:1}
+  .badge-blue{background:rgba(0,88,234,.1);color:var(--blue)}
+  .badge-azure{background:rgba(65,169,246,.18);color:#1577bd}
+  .badge-iris{background:rgba(90,91,159,.14);color:var(--iris)}
+  .badge-high{background:rgba(229,72,77,.12);color:#c53b3f}
+  .badge-med{background:rgba(245,166,35,.18);color:#a96e10}
+  .badge-low{background:rgba(47,184,122,.16);color:#1f8f5d}
+  /* risk levels A–E */
+  .levels{display:flex;gap:12px;flex-wrap:wrap}
+  .lv{display:flex;flex-direction:column;align-items:center;gap:8px}
+  .lv b{width:50px;height:50px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:700;font-size:20px;color:#fff}
+  .lv span{font-size:11px;color:var(--ink-2)}
+  .lv-a b{background:#2FB87A}.lv-b b{background:#8FBE52}.lv-c b{background:#F5A623}.lv-d b{background:#EE6A45}.lv-e b{background:#E5484D}
+  /* score + percentile */
+  .score{font-family:var(--display);font-weight:800;font-size:52px;color:var(--blue);font-variant-numeric:tabular-nums;letter-spacing:-.02em;line-height:1}
+  .score small{font-size:18px;color:var(--ink-2);font-weight:600;margin-left:4px}
+  .pct{max-width:440px}
+  .pct-track{height:10px;border-radius:999px;background:#E6ECF5;position:relative;overflow:hidden}
+  .pct-fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--azure))}
+  .pct-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-2);margin-top:9px;font-variant-numeric:tabular-nums}
+  /* data table */
+  .tbl-wrap{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  .tbl{width:100%;border-collapse:collapse;font-size:14px}
+  .tbl th{text-align:left;font-family:var(--display);font-weight:600;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);padding:14px 18px;background:var(--mist);border-bottom:1px solid var(--line)}
+  .tbl td{padding:15px 18px;border-bottom:1px solid var(--line);color:var(--ink);font-variant-numeric:tabular-nums}
+  .tbl tr:last-child td{border-bottom:0}
+  .tbl .mono{font-family:var(--body);letter-spacing:.02em}
+  /* console preview */
+  .console{display:grid;grid-template-columns:210px 1fr;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;box-shadow:0 10px 40px rgba(15,38,71,.10)}
+  @media(max-width:680px){.console{grid-template-columns:1fr}}
+  .console-side{background:var(--navy);padding:22px 16px;display:flex;flex-direction:column;gap:4px}
+  .console-brand{font-family:var(--display);font-weight:500;letter-spacing:.22em;color:#fff;font-size:17px;padding:4px 8px 18px}
+  .quota{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:18px;text-align:center;margin-bottom:18px}
+  .quota .q{font-family:var(--display);font-weight:800;font-size:36px;color:#fff;font-variant-numeric:tabular-nums;line-height:1}
+  .quota .ql{font-size:13px;color:#aebfda;margin-top:8px;line-height:1.4}
+  .nav-i{font-size:15px;padding:11px 14px;border-radius:8px;color:#c3cfe8;cursor:default}
+  .nav-i.on{background:rgba(65,169,246,.22);color:#fff;font-weight:600}
+  .console-main{padding:24px}
+  .console-main h5{font-family:var(--display);font-weight:700;font-size:16px;color:var(--ink);margin-bottom:4px}
+  .console-main .cm-sub{font-size:12.5px;color:var(--ink-2);margin-bottom:18px}
 
   /* ---- footer ---- */
   footer{background:#0a1733;color:#7e92ba;padding:64px 32px;text-align:center;font-size:13px;line-height:1.8}
@@ -185,6 +261,7 @@
       <a href="#logo">Logo</a>
       <a href="#color">Color</a>
       <a href="#type">Type</a>
+      <a href="#ui-system">UI</a>
     </div>
   </div>
 </nav>
@@ -357,14 +434,14 @@
 <section id="color" class="colors">
   <div class="wrap">
     <div class="eyebrow">Color</div>
-    <h2 class="shead">Gogolook Blue, with Blue Iris in support.</h2>
-    <p class="sub"><strong>Blue</strong> leads — the trusted Gogolook primary. <strong>Blue Iris</strong> is the secondary support, with Azure and Sky as accents. Navy anchors; Mist does the quiet work. A cool, calm family, clearly part of Gogolook.</p>
+    <h2 class="shead">Gogolook Blue, with Azure in support.</h2>
+    <p class="sub"><strong>Blue</strong> leads — the trusted Gogolook primary. <strong>Azure</strong> is the secondary, with <strong>Blue Iris</strong> and Sky as accents. Navy anchors; Mist does the quiet work. A cool, calm family, clearly part of Gogolook.</p>
 
     <h3 style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);margin-bottom:18px">Primary, Secondary &amp; Accents</h3>
     <div class="swatch-row">
       <div class="sw"><div class="chip" style="background:#0058EA">Primary</div><div class="meta"><div class="nm">Blue</div><div class="hex">#0058EA</div><div class="use">Primary actions, links, active states, key brand accents.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#5A5B9F">Secondary</div><div class="meta"><div class="nm">Blue Iris</div><div class="hex">#5A5B9F</div><div class="use">Support — secondary buttons/surfaces, muted accents. Ties to the name.</div></div></div>
-      <div class="sw"><div class="chip" style="background:#41A9F6;color:#0F2647">Accent</div><div class="meta"><div class="nm">Azure</div><div class="hex">#41A9F6</div><div class="use">Highlights, data-viz. Navy text only — never white.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#41A9F6;color:#0F2647">Secondary</div><div class="meta"><div class="nm">Azure</div><div class="hex">#41A9F6</div><div class="use">Secondary highlights, data-viz, icons. Navy text only — never white.</div></div></div>
+      <div class="sw"><div class="chip" style="background:#5A5B9F">Accent</div><div class="meta"><div class="nm">Blue Iris</div><div class="hex">#5A5B9F</div><div class="use">Accent — muted surfaces and supporting accents. Ties to the name. White text passes AA.</div></div></div>
       <div class="sw"><div class="chip" style="background:#7EDFFE;color:#0F2647">Light accent</div><div class="meta"><div class="nm">Iris Sky</div><div class="hex">#7EDFFE</div><div class="use">Tints, hover fills, chart-light, glows on dark.</div></div></div>
     </div>
 
@@ -411,10 +488,178 @@
   </div>
 </section>
 
+<!-- UI SYSTEM -->
+<section id="ui-system" class="uikit">
+  <div class="wrap">
+    <div class="eyebrow">UI System</div>
+    <h2 class="shead">A console built on the system.</h2>
+    <p class="sub">The same tokens, applied. Blue drives primary actions, Azure carries data and secondary accents, Blue Iris adds accent, and the semantic risk scale stays reserved for risk data. Components are functional and neutral — terse, legible, score-friendly.</p>
+
+    <!-- Buttons -->
+    <div class="ui-block">
+      <div class="ui-sub">Buttons</div>
+      <div class="ui-panel">
+        <div class="ui-row">
+          <button class="btn btn-primary">Run query</button>
+          <button class="btn btn-secondary">Download report</button>
+          <button class="btn btn-accent">Save segment</button>
+          <button class="btn btn-ghost">Cancel</button>
+          <button class="btn btn-disabled" disabled>Unavailable</button>
+        </div>
+        <div class="ui-row">
+          <button class="btn btn-primary btn-sm">Small</button>
+          <button class="btn btn-primary">Default</button>
+          <button class="btn btn-primary btn-lg">Large</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form controls -->
+    <div class="ui-block">
+      <div class="ui-sub">Form controls</div>
+      <div class="ui-panel">
+        <div class="ui-row" style="align-items:flex-end;gap:28px">
+          <div class="field">
+            <label>Phone number</label>
+            <input class="input" type="text" placeholder="09XXXXXXXX (incl. area code)" />
+            <span class="hint">Single-number lookup.</span>
+          </div>
+          <div class="field">
+            <label>Use case</label>
+            <select class="input"><option>Credit Risk Assessment</option><option>Mule Account Detection</option></select>
+          </div>
+          <div class="ui-row" style="gap:10px">
+            <span class="toggle"></span><span class="hint" style="font-weight:600;color:var(--ink)">Email alerts on</span>
+          </div>
+          <div class="ui-row" style="gap:10px">
+            <span class="toggle off"></span><span class="hint">Low-quota notice</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Badges & risk levels -->
+    <div class="ui-block">
+      <div class="ui-sub">Badges &amp; risk levels</div>
+      <div class="ui-panel">
+        <div class="ui-row" style="margin-bottom:28px">
+          <span class="badge badge-blue">Primary</span>
+          <span class="badge badge-azure">Secondary</span>
+          <span class="badge badge-iris">Accent</span>
+          <span class="badge badge-high">● High risk</span>
+          <span class="badge badge-med">● Manual review</span>
+          <span class="badge badge-low">● Low risk</span>
+        </div>
+        <div class="levels">
+          <div class="lv lv-a"><b>A</b><span>Lowest</span></div>
+          <div class="lv lv-b"><b>B</b><span>Low</span></div>
+          <div class="lv lv-c"><b>C</b><span>Medium</span></div>
+          <div class="lv lv-d"><b>D</b><span>High</span></div>
+          <div class="lv lv-e"><b>E</b><span>Highest</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Score & percentile -->
+    <div class="ui-block">
+      <div class="ui-sub">Score &amp; single-feature percentile</div>
+      <div class="ui-panel">
+        <div class="ui-row" style="gap:48px;align-items:center">
+          <div>
+            <div class="hint" style="margin-bottom:6px">Risk score</div>
+            <div class="score">742<small>/ 900</small></div>
+            <span class="badge badge-low" style="margin-top:12px">● Risk level B</span>
+          </div>
+          <div class="pct" style="flex:1;min-width:260px">
+            <div class="hint" style="margin-bottom:10px;font-weight:600;color:var(--ink)">Interaction with high-risk finance — percentile</div>
+            <div class="pct-track"><div class="pct-fill" style="width:88%"></div></div>
+            <div class="pct-meta"><span>0</span><span>88th percentile</span><span>100</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data table -->
+    <div class="ui-block">
+      <div class="ui-sub">Data table — query results</div>
+      <div class="tbl-wrap">
+        <table class="tbl">
+          <thead><tr><th>Phone number</th><th>Risk score</th><th>Level</th><th>Top factor</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td class="mono">0912 777 222</td><td>318</td><td><span class="badge badge-high">E</span></td><td>Loan-shark contacts</td><td><span class="badge badge-high">High risk</span></td></tr>
+            <tr><td class="mono">0424 815 741</td><td>556</td><td><span class="badge badge-med">D</span></td><td>Abnormal activity</td><td><span class="badge badge-med">Review</span></td></tr>
+            <tr><td class="mono">0928 111 333</td><td>742</td><td><span class="badge badge-low">B</span></td><td>—</td><td><span class="badge badge-low">Low risk</span></td></tr>
+            <tr><td class="mono">0919 555 666</td><td>810</td><td><span class="badge badge-low">A</span></td><td>—</td><td><span class="badge badge-low">Low risk</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Console preview -->
+    <div class="ui-block">
+      <div class="ui-sub">Console — app shell</div>
+      <div class="console">
+        <div class="console-side">
+          <div class="console-brand">IRIS</div>
+          <div class="quota"><div class="q">88</div><div class="ql">queries remaining · expires 2026-12</div></div>
+          <div class="nav-i on">Number query</div>
+          <div class="nav-i">Member management</div>
+          <div class="nav-i">Account info</div>
+          <div class="nav-i">FAQ</div>
+          <div class="nav-i">Contact us</div>
+        </div>
+        <div class="console-main">
+          <h5>Number query</h5>
+          <div class="cm-sub">Single &amp; batch (CSV) phone-number lookup.</div>
+          <div class="ui-row" style="align-items:flex-end;gap:14px;margin-bottom:22px">
+            <div class="field" style="max-width:260px"><label>Phone number</label><input class="input" type="text" placeholder="09XXXXXXXX" /></div>
+            <button class="btn btn-primary">Query</button>
+            <button class="btn btn-secondary">Upload CSV</button>
+          </div>
+          <div class="tbl-wrap">
+            <table class="tbl">
+              <thead><tr><th>Number</th><th>Score</th><th>Level</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td class="mono">0912 777 222</td><td>318</td><td><span class="badge badge-high">E</span></td><td><span class="badge badge-high">High risk</span></td></tr>
+                <tr><td class="mono">0928 111 333</td><td>742</td><td><span class="badge badge-low">B</span></td><td><span class="badge badge-low">Low risk</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 <footer>
   <p><strong>IRIS</strong> — Intelligence Risk Integrated Solutions · part of the Gogolook B2B suite</p>
   <p style="margin-top:8px">Confidential &amp; Copyright of Gogolook Co., Ltd.</p>
 </footer>
 
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav a[href^="#"]'));
+  var map = {};
+  links.forEach(function(a){
+    var id = a.getAttribute('href').slice(1);
+    var sec = document.getElementById(id);
+    if(sec) map[id] = a;
+  });
+  var sections = Object.keys(map).map(function(id){ return document.getElementById(id); });
+  function setActive(id){
+    links.forEach(function(a){ a.classList.remove('active'); });
+    if(map[id]) map[id].classList.add('active');
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting) setActive(e.target.id);
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    sections.forEach(function(s){ io.observe(s); });
+  }
+})();
+</script>
 </body>
 </html>
